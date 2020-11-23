@@ -10,16 +10,16 @@ module Modules
             self.all.count
         end
 
+        def find_by_name(name)
+            self.all.detect{|a| a.name == name}
+        end
+
     end
 
     module InstanceMethods
 
         def initialize
             self.class.all << self
-        end
-
-        def self.find_by_name(name)
-            @@all.detect{|a| a.name == name}
         end
 
         def to_param
